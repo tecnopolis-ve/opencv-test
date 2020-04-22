@@ -260,6 +260,7 @@ class DocumentOcr(object):
 			rect = cv2.bitwise_not(rect)
 			
 			rect = cv2.threshold(rect, 128, 255, cv2.THRESH_BINARY)[1]
+			rect = cv2.GaussianBlur(rect, (1, 1), 0)
 
 			cv2.imshow("PRE OCR", image_pre_ocr)
 			cv2.imshow("ROI", image_roi)
